@@ -36,7 +36,7 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     const List<Widget> _widgetOptions = <Widget>[
       MapView(),
-      Text("LOGIN")
+      LoginView()
     ];
 
     void _onItemTapped(int index){
@@ -53,8 +53,10 @@ class _BodyState extends State<Body> {
           const BottomNavigationBarItem(icon: Icon(Icons.login), label: "login", backgroundColor: Colors.amber),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black12,
         onTap: _onItemTapped,
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
         
       ),
       body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
