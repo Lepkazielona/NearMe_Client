@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "272064396450",
+    "firebase_url": "https://nearme-e2b6f-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "nearme-e2b6f",
+    "storage_bucket": "nearme-e2b6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272064396450:android:a7d85bb41d8b20728e6bfb",
+        "android_client_info": {
+          "package_name": "me.lpka.near_me_client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272064396450-89aiv3b48g43aeeanuc994gpk1e50pg7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4gTfDaamRNI6P0GsOgsjzrcC4z5V7qmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272064396450-89aiv3b48g43aeeanuc994gpk1e50pg7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "272064396450-hudh3e5mvqe4ltkdgi7arb55f0k1ut9b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "me.lpka.nearMeClient"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

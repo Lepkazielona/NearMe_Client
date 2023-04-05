@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>272064396450-hudh3e5mvqe4ltkdgi7arb55f0k1ut9b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.272064396450-hudh3e5mvqe4ltkdgi7arb55f0k1ut9b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCc3F-ULkSb8aq37J1JJygP-djdieYvh8k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>272064396450</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>me.lpka.nearMeClient</string>
+	<key>PROJECT_ID</key>
+	<string>nearme-e2b6f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nearme-e2b6f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:272064396450:ios:26f9fe4a4ff423118e6bfb</string>
+</dict>
+</plist>
