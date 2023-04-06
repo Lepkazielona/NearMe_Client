@@ -2,23 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:near_me_client/views/map.dart';
-import 'package:near_me_client/views/login_debug.dart';
+import 'package:near_me_client/bottom_panel_views/map.dart';
+import 'package:near_me_client/bottom_panel_views/login_debug.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_database/firebase_database.dart';
 //void main() => runApp(app());
 
+FirebaseDatabase database = FirebaseDatabase.instance;
+bool isDarkMode = false;
+
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(app());
+  runApp(const App());
 }
 
-bool isDarkMode = false;
+class App extends StatefulWidget {
+  const App({super.key});
 
-class app extends StatelessWidget {
-  app({super.key});
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
