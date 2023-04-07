@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:near_me_client/main.dart';
+import '../screens/user_view.dart';
 
 class MapView extends StatefulWidget {
   const MapView({super.key, bool brightness = false});
@@ -71,17 +71,32 @@ class _MapViewState extends State<MapView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: GoogleMap(
-            initialCameraPosition: _kGooglePlex,
-            mapType: MapType.normal,
-            compassEnabled: false,
-            myLocationEnabled: true,
-            myLocationButtonEnabled: false,
-            zoomControlsEnabled: false,
-            onMapCreated: _onMapCreated),
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.navigation_outlined),
-          onPressed: () => {_upLocation()},
-        ));
+      body: Stack(
+        children: [
+          GoogleMap(
+              initialCameraPosition: _kGooglePlex,
+              mapType: MapType.normal,
+              compassEnabled: false,
+              myLocationEnabled: true,
+              myLocationButtonEnabled: false,
+              zoomControlsEnabled: false,
+              onMapCreated: _onMapCreated),
+          Padding(
+            padding: EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 16),
+            child: FloatingActionButton(
+              heroTag: "usrViewBtn",
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => UserView())),
+              child: Icon(Icons.umbrella),
+            ),
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        heroTag: "locationBtn",
+        child: const Icon(Icons.navigation_outlined),
+        onPressed: () => {_upLocation()},
+      ),
+    );
   }
 }

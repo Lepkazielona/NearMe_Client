@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:near_me_client/bottom_panel_views/debug.dart';
 import 'package:near_me_client/bottom_panel_views/map.dart';
-import 'package:near_me_client/bottom_panel_views/login_debug.dart';
+import 'package:near_me_client/bottom_panel_views/friends.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -63,11 +61,12 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   List<Widget> screens = [
+    const FriendsView(),
     MapView(brightness: isDarkMode),
-    const LoginViewDebug(),
+    const DebugMenu()
   ];
 
   void _onItemTapped(index) {
@@ -82,13 +81,15 @@ class _BodyState extends State<Body> {
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
+                icon: Icon(Icons.login),
+                label: "Friends",
+                backgroundColor: Colors.amber),
+            BottomNavigationBarItem(
                 icon: Icon(Icons.map),
                 label: "Mapa",
                 backgroundColor: Colors.blue),
             BottomNavigationBarItem(
-                icon: Icon(Icons.login),
-                label: "login",
-                backgroundColor: Colors.amber),
+                icon: Icon(Icons.developer_mode), label: "debug")
           ],
           currentIndex: _selectedIndex,
           backgroundColor: Colors.black,
