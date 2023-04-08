@@ -45,7 +45,7 @@ class _AppState extends State<App> {
             onError: Colors.red,
             background: Colors.black,
             onBackground: Colors.white,
-            surface: Colors.white,
+            surface: Colors.black,
             onSurface: Colors.white),
       ),
       home: const SafeArea(child: Body()),

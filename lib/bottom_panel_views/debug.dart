@@ -22,12 +22,12 @@ class _DebugMenuState extends State<DebugMenu> {
             backgroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
       ),
       ElevatedButton(
-        onPressed: () => Navigator.push(context,
+        onPressed: () => Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const LoginView())),
         child: Text("Login Screen"),
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
-      ),
+      )
     ]));
   }
 }
