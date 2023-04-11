@@ -27,6 +27,13 @@ class _DebugMenuState extends State<DebugMenu> {
         child: Text("Login Screen"),
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
+      ),
+      ElevatedButton(
+        onPressed: () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const LoginView())),
+        child: Text("DEBUG LOGIN TEST 1"),
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
       )
     ]));
   }
