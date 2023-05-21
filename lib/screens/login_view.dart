@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'login/login_mail.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -28,10 +29,6 @@ class _LoginViewState extends State<LoginView> {
     super.initState();
   }
 
-  final Widget googleIcon = SvgPicture.asset(
-    "assets/Google_ G _Logo.svg",
-  );
-
   void switchRegisterAndLogin() {
     setState(() {
       _register = !_register;
@@ -41,6 +38,25 @@ class _LoginViewState extends State<LoginView> {
         _regText = "Log In";
       }
     });
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+    print(googleUser?.displayName);
+    print(googleUser);
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   @override
@@ -57,14 +73,20 @@ class _LoginViewState extends State<LoginView> {
       child: Scaffold(
         body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-              _regText,
-              style: TextStyle(fontSize: 25),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 100),
+              child: Text(
+                _regText,
+                style: TextStyle(fontSize: 50),
+              ),
             ),
             IntrinsicWidth(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  /*
+                    MAIL
+                  */
                   ElevatedButton.icon(
                     onPressed: () => {
                       print("Email Login"),
@@ -75,20 +97,33 @@ class _LoginViewState extends State<LoginView> {
                     },
                     icon: Icon(Icons.mail),
                     label: Text("$_regText using Email"),
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white38),
                   ),
+                  /*
+                    GOOGLE
+                  */
                   ElevatedButton.icon(
-                    onPressed: () => print("emaillogin"),
-                    icon: FaIcon(FontAwesomeIcons.google),
                     label: Text("$_regText using Google"),
+                    icon: FaIcon(FontAwesomeIcons.google),
+                    onPressed: signInWithGoogle,
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                  ),
+                  /*
+                    APPLE
+                  */
+                  ElevatedButton.icon(
+                    label: Text("$_regText using Facebook"),
+                    icon: FaIcon(FontAwesomeIcons.facebook),
+                    onPressed: () => print("emaillogin"),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.white),
                   ),
                   ElevatedButton.icon(
-                    onPressed: () => print("emaillogin"),
-                    icon: FaIcon(FontAwesomeIcons.apple),
                     label: Text("$_regText using Apple"),
+                    icon: FaIcon(FontAwesomeIcons.apple),
+                    onPressed: () => print("emaillogin"),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.white),
                   ),
